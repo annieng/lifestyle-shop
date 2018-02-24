@@ -1,0 +1,30 @@
+// put where item buttons are ie. onClick={this.props.addItem}
+addItem = (product) => {
+  axios.post('http://localhost:4420', product)
+  this.setState({
+    cart: this.state.cart.concat(product)
+  })
+}
+
+
+// getting information in order to display cart
+componentDidUpdate() {
+    axios.get('http://localhost:4420', (req, res) = {
+    // do something 
+  })
+}
+
+
+  // setting up local storage to remember username
+  addUser = (event) => {
+    localStorage.setItem('USER', JSON.stringify(this.state.username))
+    // get item
+    localStorage.getItem('USER', JSON.stringify(this.state.username))
+    // setState
+    this.setState({
+      username: this.state.username
+    })
+  }
+
+
+  onSubmit={(event) => { this.props.addUser(event) }}
