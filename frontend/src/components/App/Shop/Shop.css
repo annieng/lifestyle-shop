@@ -6,17 +6,15 @@
   margin: 0px;
 }
 
-.one-third column:first-child  {
-  margin: 0px;
-}
-
-.column:first-child, 
-.columns:first-child {
-  margin-left: 0px;
-}
 
 header {
-  padding-top: 5rem
+  padding-top: 5rem;
+}
+
+h2 {
+  color: #175D76;
+  letter-spacing: 0.5rem;
+
 }
 
 .product-image {
@@ -24,7 +22,11 @@ header {
   margin: 0rem;
 }
 
-.cart-container {
-  list-style: none
+.cart {
+  list-style-type: none;
+
 }
+
+
+
 

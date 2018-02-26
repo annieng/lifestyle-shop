@@ -199,7 +199,7 @@ class Shop extends Component {
       
       <div className='container'>
         <header>
-          <h1> welcome to club lift {this.props.username} </h1>
+          <h2> welcome to club lift {this.props.username} </h2>
         </header>
         <nav className='shop-nav'>        
           <Link to='/shop/pipes'>
@@ -226,7 +226,6 @@ class Shop extends Component {
           <ul className='cart'>
             {cartJSX}
           </ul>
-          <span> your cart total is : </span>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../../Shop/Shop.css'
 
 class Cart extends Component {
   render() {
