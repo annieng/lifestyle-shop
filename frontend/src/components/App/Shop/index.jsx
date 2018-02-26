@@ -226,6 +226,7 @@ class Shop extends Component {
           <ul className='cart'>
             {cartJSX}
           </ul>
+          <button name='remove-item' onClick={this.removeFromCart}> clear cart </button>
         </div>
       </div>
 
