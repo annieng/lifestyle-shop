@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
+
+//import css
+import './Shop.css'
+
 //import components
 import Ashtrays from './Ashtrays'
 import Pipes from './Pipes' 
-import Product from './Product'
+import Products from './Products'
 import Cart from './Cart'
 
 
@@ -120,11 +124,9 @@ class Shop extends Component {
           price: 95,
           picture: '/images/pipe9.jpg',
           type: 'pipe'
-        }
+        } 
       ],
-
       cart : []
-
     })
   }
 
@@ -140,6 +142,7 @@ class Shop extends Component {
   }
 
   componentWillUpdate() {
+    console.log(this.state.cart)
     axios.post('http://localhost:4420/shop', { cart: this.state.cart })
       .then((res) => {
         if (res.data.success) {
@@ -149,7 +152,6 @@ class Shop extends Component {
   }
 
   // add to cart function
-
   addToCart = (product) => {  
     let addProduct = {
       name: product.name,
@@ -160,55 +162,68 @@ class Shop extends Component {
 
     let cart = this.state.cart
     cart.push(addProduct)
-      
+     
       this.setState ({
         cart
       })
     }
+  
+  //remove from cart function
+  //currently clears entire cart needs to be fixed
+  removeFromCart = (product) => {
+    let removeProduct = {
+      name: product.name,
+      price: product.price,
+      picture: product.picture,
+      type: product.type
+    }
+    let cart = this.state.cart
+    cart.splice(removeProduct)
+    
+    this.setState({
+      cart
+    })
+  }
 
   render() {
-    console.log(this.state.cart)
-    let productsJSX = this.state.products.map(( product, i ) => {
-      return <Product 
-        product={product} 
-        key={i} 
-        addToCart={this.addToCart}
-        />
-    })
     
     let cartJSX = this.state.cart.map( (cartItem, i) => {
       return <Cart 
         cartItem={cartItem}
         key= {i}
+        removeFromCart = {this.removeFromCart}
         />
     })
 
     return (
       
-      <div>
-        <h3> lets get high cutie take a look </h3>
-        <nav>        
+      <div className='container'>
+        <header>
+          <h1> welcome to club lift {this.props.username} </h1>
+        </header>
+        <nav className='shop-nav'>        
           <Link to='/shop/pipes'>
-            <button type='button'>~~pipes~~</button>
+            <button type='button'>pipes</button>
           </Link>         
           <Link to='/shop/ashtrays'>
-            <button type='button'>~~ashtrays~~</button>
+            <button type='button'>ashtrays</button>
           </Link>
-
-          {/* SETTING ROUTES HERE */}
-          <Switch>
-            <Route path='/shop/pipes' render={() => { return <Pipes  products={this.state.products}/> }} />
-            <Route path='/shop/ashtrays' render={() => { return <Ashtrays products={this.state.products} /> }}/>
-          </Switch>
+          <Link to='/shop/all'>
+            <button type='button'>all products</button>
+          </Link>
         </nav>
-
-        <main className='container-fluid'>
-          <h1> welcome {this.props.username} </h1>
-          {productsJSX}
-        </main>
-        <div className='container-fluid'>
-          <h1> Cart </h1>
-          <ul>
+          {/* SETTING ROUTES HERE */}
+        
+          <Switch>
+            <Route path='/shop/all' render={() => { return <Products products={this.state.products} addToCart={this.addToCart} /> }} />
+            <Route path='/shop/pipes' render={() => { return <Pipes products={this.state.products} addToCart={this.addToCart}/> }} />
+            <Route path='/shop/ashtrays' render={() => { return <Ashtrays products={this.state.products} addToCart={this.addToCart}/> }}/>
+          </Switch>
+   
+        
+        <div className='container'>
+          <h2> cart </h2>
+          <ul className='cart'>
             {cartJSX}
           </ul>
           <span> your cart total is : </span>

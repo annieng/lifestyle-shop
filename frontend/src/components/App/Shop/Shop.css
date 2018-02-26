@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+}
+
+.one-third column  {
+  margin: 0px;
+}
+
+.one-third column:first-child  {
+  margin: 0px;
+}
+
+.column:first-child, 
+.columns:first-child {
+  margin-left: 0px;
+}
+
+header {
+  padding-top: 5rem
+}
+
+.product-image {
+  max-width: 100%;
+  margin: 0rem;
+}
+
+.cart-container {
+  list-style: none
+}
+

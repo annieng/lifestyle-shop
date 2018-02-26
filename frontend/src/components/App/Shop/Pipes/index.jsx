@@ -8,15 +8,13 @@ class Pipes extends Component {
       return <Pipe 
         pipe={pipe}
         key={i}
-        addToCart={this.addToCart}
+        addToCart={this.props.addToCart}
       />
     })
     return (
-
-      <div>
-        <h4> pipes to get high with</h4>
-        {pipesJSX}
-      </div>
+        <div className='row'>
+          {pipesJSX}
+        </div>
     )
   }
 }

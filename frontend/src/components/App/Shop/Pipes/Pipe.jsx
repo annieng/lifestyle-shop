@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import '../../Shop/Shop.css'
 
 class Pipe extends Component {
   render() {
     return (
-      <div>
-        <img src={this.props.pipe.picture} alt={this.props.pipe.name} />
-        <span> {this.props.pipe.name}</span>
-        <button onClick={() => { this.props.addToCart(this.props.product) }}> add to cart </button>
+      <div className='one-third column' >
+        <figure>
+          <img src={this.props.pipe.picture} alt={this.props.pipe.name} className='product-image' />
+          <figcaption> {this.props.pipe.name}</figcaption>
+          <button onClick={() => {this.props.addToCart(this.props.pipe) }}> add to cart </button>
+        </figure>
       </div>
     )
   }

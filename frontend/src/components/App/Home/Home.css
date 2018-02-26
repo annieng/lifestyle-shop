@@ -1,0 +1,15 @@
+.container-fluid {
+  padding-top: 2rem;
+  padding-right: 5rem;
+}
+
+.login {
+  text-align: right;
+  color: #175D76;
+  letter-spacing: 0.5rem;
+  
+}
+
+button {
+  margin-left: 1rem;
+}

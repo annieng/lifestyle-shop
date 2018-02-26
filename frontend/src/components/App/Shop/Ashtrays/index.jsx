@@ -8,15 +8,13 @@ class Ashtrays extends Component {
       return <Ashtray
         ashtray={ashtray}
         key={i}
-        addToCart={this.addToCart}
+        addToCart={this.props.addToCart}
       />
     })
     return (
-
-      <div>
-        <h4> hallucinatory ashtrays</h4>
-        {ashtraysJSX}
-      </div>
+        <div className='row'>  
+          {ashtraysJSX}
+        </div>
     )
   }
 }

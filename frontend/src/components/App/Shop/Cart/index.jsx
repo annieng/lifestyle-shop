@@ -7,6 +7,7 @@ class Cart extends Component {
         <li> <img src={this.props.cartItem.picture} alt={this.props.cartItem.name} /></li>
         <li> {this.props.cartItem.name}</li>
         <li> {this.props.cartItem.price}</li>
+        <button name='remove-item' onClick={this.props.removeFromCart}> remove from cart </button>
       </div>
     )
   }
