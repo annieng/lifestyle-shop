@@ -15,7 +15,6 @@ class App extends Component {
       cart: []
     }
   }
-
   // function for handling event of entering username
   // will also enable local storage to save username in local storage
   enterUsername = (event) => {

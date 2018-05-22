@@ -2,10 +2,6 @@
   width: 100%;
 }
 
-.one-third column  {
-  margin: 0px;
-}
-
 
 header {
   padding-top: 5rem;
@@ -14,7 +10,6 @@ header {
 h2 {
   color: #175D76;
   letter-spacing: 0.5rem;
-
 }
 
 .product-image {
